@@ -1,0 +1,13 @@
+<p>
+    <%= form_tag(items_path, method: :get) do %>
+        <%= text_field_tag(:name)%>
+        <%= submit_tag("Search our website")%>
+    <% end %>
+</p>
+
+
+<ul>
+    <% @items.sample(5) do |item| %>
+       <li><%= link_to item.name %></li><br>
+    <% end %>
+</ul>

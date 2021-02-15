@@ -1,0 +1,17 @@
+<h1><%= @item.name %></h1>
+
+<%= @item.description %>
+
+<%= "$ #{@item.price}" %><br>
+
+<%= @item.stock %><br>
+
+
+<%= button_to add_to_cart, "Add to cart", method="POST"%>
+
+
+
+<% @item.reviews.each do |review| %>
+    <%= review.rating %>
+    <%= review.body %>
+<% end %>
