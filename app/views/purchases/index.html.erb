@@ -1,0 +1,6 @@
+<h1> Purchases </h1>
+
+<% current_customer.items.each do |item| %>
+    <%= item.name %><br>
+    <%= item.price %><br>
+<% end %>

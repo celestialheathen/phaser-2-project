@@ -1,8 +1,6 @@
-<h1> Purchases </h1>
-<ul>
+<h1> Individual purchase </h1>
+
 <% @purchase.items.each do |item| %>
-    <li>
-        <%= item.name %>
-    </li>
+    <%= item.name %><br>
+    <%= item.price %><br>
 <% end %>
-</ul>

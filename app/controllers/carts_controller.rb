@@ -11,7 +11,6 @@ class CartsController < ApplicationController
 
     def add_to_cart
         @purchase = Purchase.create(cart: @cart, item: @item)
-        
     end
 
 end

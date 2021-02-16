@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 
-    helper_method :current_customer, :is_logged_in?
+    helper_method :current_customer, :is_logged_in?, :current_cart
 
     def current_customer
         Customer.find_by(id: session[:customer_id])
