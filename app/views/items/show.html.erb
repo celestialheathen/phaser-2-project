@@ -8,7 +8,7 @@
 
 <%= image_tag "#{@item.image}.jpg" %>
 
-
+<%= button_to "Add to cart", add_to_cart_path %>
 
 
 <% @item.reviews.each do |review| %>

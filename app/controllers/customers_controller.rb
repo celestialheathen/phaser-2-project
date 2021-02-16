@@ -15,6 +15,7 @@ class CustomersController < ApplicationController
     def handle_login
         @customer = Customer.find_by(username: params[:username])
         if @customer && @customer.authenticate(params[:password])
+            session[:customer_id] = @customer.id
             redirect_to items_path
         else
             flash[:errors] = ["Incorrect Username or Password"]
