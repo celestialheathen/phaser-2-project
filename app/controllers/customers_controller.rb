@@ -6,6 +6,7 @@ class CustomersController < ApplicationController
     def create
         @customer = Customer.create(customer_params)
         session[:customer_id] = @customer.id
+        
         redirect_to items_path
     end
 

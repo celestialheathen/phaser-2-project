@@ -1,17 +1,12 @@
 class CartsController < ApplicationController
     def create
-        if @cart == nil
-            @cart = Cart.create(session[:customer_id], ordered: false)
-            
-        else
-            add_to_cart
-        end
+        @cart = current_customer.carts.create(cart_params)
     end
 
-
-    def add_to_cart
-        @purchase = Purchase.create(cart: @cart, item: @item)
-        
+    private
+    def cart_params
+        params.require(:cart).permit(:customer_id, :ordered)
     end
+
 
 end

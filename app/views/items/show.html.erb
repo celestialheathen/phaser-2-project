@@ -8,7 +8,11 @@
 
 <%= image_tag "#{@item.image}.jpg", size: "570x325" %>
 
-<%= button_to "Add to cart", add_to_cart_path %>
+<%= form_for @item.purchases do |f|%>
+<%= f.hidden_field :item_id, :value => :item.id %>
+<%= f.number_field :quantity, :value => 1 %>
+<%= f.submit "Add to Cart" %>
+<% end %>
 
 
 <% @item.reviews.each do |review| %>
