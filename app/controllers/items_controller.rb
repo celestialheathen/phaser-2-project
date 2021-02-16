@@ -10,6 +10,7 @@ class ItemsController < ApplicationController
 
     def show 
         @item = Item.find(params[:id])
+        @purchase = current_customer.carts.purchases
     end
 
     def add_to_cart 
