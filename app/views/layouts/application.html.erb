@@ -7,10 +7,21 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <p>
+    <%= form_tag(items_path, method: :get) do %>
+        <%= text_field_tag(:name)%>
+        <%= submit_tag("Search our website")%>
+    <% end %>
+    </p>
+
+    <p>
+      <%= link_to "Sign up", new_customer_path %>
+      <%= link_to "Log In", "/login" %>
+    </p>
+
     <%= yield %>
   </body>
 </html>
