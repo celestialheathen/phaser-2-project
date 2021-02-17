@@ -1,13 +1,11 @@
 class ItemsController < ApplicationController
 
     def index 
-        # if params[:name]
-        #     @items = Item.where('name LIKE ?', "%#{params[:name]}")
-        # else
+        if params[:name]
+            @items = Item.where('name LIKE ?', "%" + params[:name] + "%")
+        else
             @items = Item.all 
-        # end      
-        # @purchase = current_customer.purchases.new
-        
+        end 
     end 
 
     def show 

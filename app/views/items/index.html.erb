@@ -1,6 +1,5 @@
-
-<ul>
-    <% @items.sample(3).each do |item| %>
-       <li><%= link_to item.name, item_path(item) %></li><br>
+<% @items.sample(4).each do |item| %>
+    <%= link_to item_path(item) do %>
+        <%= image_tag("#{item.image}.jpg", size: "250x180", :style => "margin: 12px") %>
     <% end %>
-</ul>
+<% end %>

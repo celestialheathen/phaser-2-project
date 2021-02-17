@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2021_02_15_172251) do
 
   create_table "items", force: :cascade do |t|
     t.string "name"
-    t.float "price"
+    t.decimal "price"
     t.integer "stock"
     t.text "description"
     t.string "image"

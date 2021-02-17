@@ -12,26 +12,30 @@
   <body>
     <header>
       <div id="logo">
-      <%= link_to items_path do %>
-        <%= image_tag "logo.jpg", size: "120x80" %>
+        <%= link_to items_path do %>
+          <%= image_tag "logo.jpg", size: "130x80" %>
         <% end %>
       </div>
-    <p>
-    <%= form_tag(items_path, method: :get) do %>
-        <%= text_field_tag(:name)%>
-        <%= submit_tag("Search our website")%>
-    <% end %>
-    </p>
 
-    <% if is_logged_in? %>
-      <p> Logged in as: <%= current_customer.username %> </p>
-      <p> <%= button_to "Log out", logout_path, method: "delete" %> </p>
-    <% else %>
-    <p>
-      <%= link_to "Sign up", new_customer_path %>
-      <%= link_to "Log In", "/login" %>
-    </p>
-    <% end %>
+     <div id="search_bar">
+        <%= form_tag(items_path, method: :get) do %>
+          <%= text_field_tag(:name)%>
+          <%= submit_tag("Search our website")%>
+        <% end %>
+    </div>
+
+    <div id="user">
+      <% if is_logged_in? %>
+        Logged in as: <%= current_customer.username %>
+        <%= button_to "Log out", logout_path, method: "delete" %>
+      <% else %>
+        <%= link_to "Sign up", new_customer_path %>
+        <%= link_to "Log In", "/login" %>
+      <% end %>
+    </div>
+
+    <div id="cart">
+    </div>
 
     </header>
 
