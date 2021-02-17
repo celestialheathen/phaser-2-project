@@ -8,6 +8,8 @@ class CartsController < ApplicationController
         end
     end
 
+    def show
+    end
 
     def add_to_cart
         @purchase = Purchase.create(cart: @cart, item: @item)

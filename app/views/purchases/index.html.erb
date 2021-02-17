@@ -1,6 +1,10 @@
 <h1> Purchases </h1>
-
+<% total = 0 %>
 <% current_customer.purchases.each do |purchase| %>
     <%= purchase.item.name %><br>
     <%= purchase.item.price %><br>
+    <% total += purchase.item.price %>
 <% end %>
+
+<p> Cart Item Total: <%= @purchases.count %> </p>
+<p> Subtotal: $<%= total %> </p>

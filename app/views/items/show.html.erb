@@ -2,9 +2,9 @@
 
 <%= @item.description %>
 
-<%= "$ #{@item.price}" %><br>
+<p> Price: <%= "$ #{@item.price}" %><br></p>
 
-<%= @item.stock %><br>
+<p>Stock: <%= @item.stock %><br> </p>
 
 <%= image_tag "#{@item.image}.jpg", size: "570x325" %>
 
@@ -18,8 +18,6 @@
     <p>Sign up or log in above to add item to cart</p>
 <% end %>
 
+<%= render "/reviews/show.html.erb" %>
+<%= render "/reviews/new.html.erb" %>
 
-<% @item.reviews.each do |review| %>
-    <%= review.rating %>
-    <%= review.body %>
-<% end %>

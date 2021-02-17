@@ -1,0 +1,10 @@
+<h1> Your Cart </h1>
+<ul>
+<% current_customer.purchases.each do |purchase| %>
+    <li>
+    <%= purchase.item.name %>
+    </li>
+<% end %>
+</ul>
+
+<p> Total: <%= current_customer.carts.last.items.sum {|item| item.price } %>

@@ -20,3 +20,5 @@ cr1 = Item.create(name: "Chicken rocks", price: 1, stock: 99, description: "A ch
 user1 = Customer.create(username: "gary", password: "gary")
 user2 = Customer.create(username: "larry", password: "larry")
 
+r1 = Review.create(customer: user1, item: ps5, rating: 4, body: "Really good, I love it")
+r2 = Review.create(customer: user2, item: ps5, rating: 5, body: "Amazing, super fast shipping")

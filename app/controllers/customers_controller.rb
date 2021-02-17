@@ -25,10 +25,16 @@ class CustomersController < ApplicationController
         end
     end
 
+    def logout
+        session[:customer_id] = nil
+        redirect_to items_path
+    end
     private
 
     def customer_params
         params.require(:customer).permit(:username, :password)
     end
+
+
 
 end

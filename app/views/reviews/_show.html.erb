@@ -1,0 +1,10 @@
+<% if is_logged_in? %>
+    <ul>
+        <% @item.reviews.each do |review| %>
+        <li>
+        <%= review.rating %><br>
+        <%= review.body %>
+        </li>
+        <% end %>
+    </ul>
+<%end%>
