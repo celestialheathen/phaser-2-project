@@ -2,7 +2,10 @@
     <ul>
         <% @item.reviews.each do |review| %>
         <li>
-        <%= review.rating %><br>
+            <%= review.customer.username %><br>
+            <% review.rating.times do  %>
+               🌟
+            <% end %><br>
         <%= review.body %>
         </li>
         <% end %>

@@ -12,6 +12,7 @@ class ItemsController < ApplicationController
         @item = Item.find(params[:id])
         @purchase = Purchase.new
         @review = Review.new
+        @items = Item.all
     end
 
     def add_to_cart 

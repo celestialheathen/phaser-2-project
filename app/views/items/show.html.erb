@@ -1,12 +1,17 @@
-<h1><%= @item.name %></h1>
+<section> 
+ <div id="image"> <%= image_tag "#{@item.image}.jpg", size: "570x325" %> </div>
+ <div id="showcase">
+    <h1><%= @item.name %></h1>
 
-<%= @item.description %>
+    <%= @item.description %>
 
-<p> Price: <%= "$ #{@item.price}" %><br></p>
+    <p> Price: <%= "$ #{@item.price}" %><br></p>
 
-<p>Stock: <%= @item.stock %><br> </p>
+    <p> Stock: <%= @item.stock %><br> </p>
+ </div>
+</section>
 
-<%= image_tag "#{@item.image}.jpg", size: "570x325" %>
+
 
 <% if is_logged_in? %>
     <%= form_for @purchase do |f| %>
@@ -21,3 +26,8 @@
 <%= render "/reviews/show.html.erb" %>
 <%= render "/reviews/new.html.erb" %>
 
+<% @items.sample(4).each do |item| %>
+    <%= link_to item_path(item) do %>
+        <%= image_tag("#{item.image}.jpg", size: "150x90", :style => "margin: 12px") %>
+    <% end %>
+<% end %>
