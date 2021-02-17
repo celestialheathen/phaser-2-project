@@ -8,10 +8,14 @@
 
 <%= image_tag "#{@item.image}.jpg", size: "570x325" %>
 
-<%= form_for @purchase do |f| %>
-    <%= f.hidden_field :item, :value => @item.id %>  
-    <%= f.hidden_field :cart_id, :value => current_customer.carts.find_by(id: current_customer.id) %>  
-    <%= f.submit "Add to cart" %>
+<% if is_logged_in? %>
+    <%= form_for @purchase do |f| %>
+        <%= f.hidden_field :item_id, :value => @item.id %>  
+        <%= f.hidden_field :cart_id, :value => current_customer.carts.find_by(customer_id: current_customer.id) %>  
+        <%= f.submit "Add to cart" %>
+    <% end %>
+<% else %>
+    <p>Sign up or log in above to add item to cart</p>
 <% end %>
 
 

@@ -9,10 +9,17 @@ class PurchasesController < ApplicationController
     end
 
     def create
-        @cart = current_customer.carts.find_by(id: current_customer.id)
-        @purchase = Purchase.new(purchase_params)
-        @purchase.save
-        redirect_to purchases_path
+        @cart = current_customer.carts.find_by(customer_id: current_customer.id)
+        if @cart 
+            @purchase = @cart.purchases.new(purchase_params)
+            @purchase.save
+            redirect_to purchases_path
+        else  
+            @cart = current_customer.carts.create(customer_id: current_customer.id)
+            @purchase = @cart.purchases.new(purchase_params)
+            @purchase.save
+            redirect_to purchases_path
+        end 
     end
 
     def add_to_cart
