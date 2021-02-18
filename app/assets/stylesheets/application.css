@@ -18,4 +18,20 @@
 header {
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
+}
+
+a {
+    text-decoration: none;
+}
+
+#search_bar input#name {
+    padding: 5px;
+    width: 400px;
+    margin-top: 20px;
+}
+
+#user {
+    margin-top: 38px;
+    font-size: 20px;
 }

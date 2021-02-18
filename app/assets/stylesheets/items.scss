@@ -13,3 +13,10 @@ div {
 #showcase {
     margin-left: 100px;
 }
+
+.recommended {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+}

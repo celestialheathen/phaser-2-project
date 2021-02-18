@@ -1,10 +1,18 @@
-<h1> Purchases </h1>
-<% total = 0 %>
-<% current_customer.purchases.each do |purchase| %>
-    <%= purchase.item.name %><br>
-    <%= purchase.item.price %><br>
-    <% total += purchase.item.price %>
+<% unless is_logged_in? %>
+    Please log in or sign up to view your cart.
 <% end %>
+<% if current_customer.purchases == nil %>
+    Your cart is empty.
+<% else %>
+    <h1> Purchases </h1>
+    <% total = 0 %>
+    <% current_customer.purchases.each do |purchase| %>
+        <%= purchase.item.name %><br>
+        <%= purchase.item.price %><br>
+        <% total += purchase.item.price %>
+    <% end %>
 
-<p> Cart Item Total: <%= @purchases.count %> </p>
-<p> Subtotal: $<%= total %> </p>
+    <p> Cart Item Total: <%= @purchases.count %> </p>
+    <p> Subtotal: $<%= total %> </p>
+
+<% end %>

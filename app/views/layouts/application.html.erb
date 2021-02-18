@@ -20,7 +20,7 @@
      <div id="search_bar">
         <%= form_tag(items_path, method: :get) do %>
           <%= text_field_tag(:name)%>
-          <%= submit_tag("Search our website")%>
+          <%= submit_tag("Search")%>
         <% end %>
     </div>
 
@@ -35,6 +35,9 @@
     </div>
 
     <div id="cart">
+      <%= link_to purchases_path do %>
+        <%= image_tag "shopping_cart.png", size: "60x50" %>
+      <% end %>
     </div>
 
     </header>

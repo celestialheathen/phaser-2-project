@@ -1,5 +1,21 @@
-<% @items.sample(4).each do |item| %>
+<% if params[:name] && @items.count == 0 %>
+    Sorry, no results.
+<% end %>
+<div class="recommended"> 
+  <% @items.sample(4).each do |item| %>
     <%= link_to item_path(item) do %>
         <%= image_tag("#{item.image}.jpg", size: "250x180", :style => "margin: 12px") %>
+    <p><%= item.name %></p>
+    <p>$<%= item.price %></p>
     <% end %>
-<% end %>
+  <% end %>
+</div>
+<div class="recommended">
+  <% @items.sample(4).each do |item| %>
+    <%= link_to item_path(item) do %>
+        <%= image_tag("#{item.image}.jpg", size: "250x180", :style => "margin: 12px") %>
+        <p><%= item.name %></p>
+        <p>$<%= item.price %></p>
+    <% end %>
+  <% end %>
+</div>
