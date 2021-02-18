@@ -11,8 +11,8 @@ ps5d = Item.create(name: "PlayStation 5 Digitial Edition", price: 399, stock: 15
 ps5_controller = Item.create(name: "PlayStation 5 DualSense Wireless Controller", price: 69.99, stock: 9, description: "A gaming controller", image: "ps5c")
 
 xbx = Item.create(name: "Xbox Series X", price: 499, stock: 1, description: "Microsoft gaming console", image: "xbx")
-xbs = Item.create(name: "Xbox Series S", price: 299, stock: 99, description: "Microsoft digital gaming console", image: "xbs")
-xbx_controller = Item.create(name: "Controller for Xbox Series X", price: 59.99, stock: 9, description: "Microsoft gaming controller", image: "xbc")
+xbs = Item.create(name: "Xbox Series S", price: 299, stock: 9, description: "Microsoft digital gaming console", image: "xbs")
+xbx_controller = Item.create(name: "Controller for Xbox Series X", price: 59.99, stock: 2, description: "Microsoft gaming controller", image: "xbc")
 
 nds = Item.create(name: "Nintendo Switch", price: 299, stock: 54, description: "Nintendo handheld gaming console", image: "nds")
 ndsl = Item.create(name: "Nintendo Switch Lite", price: 199, stock: 9, description: "Nintendo handheld", image: "ndsl")

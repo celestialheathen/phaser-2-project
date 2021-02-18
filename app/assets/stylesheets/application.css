@@ -40,5 +40,5 @@ a {
 
 form input[type = "submit"] {
     padding: 5px;
-    background-color: darkgrey;
+    background-color: transparent;
 }

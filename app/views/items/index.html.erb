@@ -1,5 +1,5 @@
 <% if params[:name] && @items.count == 0 %>
-    Sorry, no results.
+    <h1>Sorry, no results found.</h1>
 <% end %>
 <div class="recommended"> 
   <% @items.sample(4).each do |item| %>
