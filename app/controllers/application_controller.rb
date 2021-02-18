@@ -9,9 +9,5 @@ class ApplicationController < ActionController::Base
     def is_logged_in?
         !!current_customer
     end
-
-    def authorized
-        redirect_to "/login" unless is_logged_in?
-    end
     
 end

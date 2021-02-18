@@ -1,10 +1,17 @@
+<div id="login">
+    <% if flash[:errors] %>
+        <% flash[:errors].each do |error|%>
+            <%= error %>
+        <% end %>
+    <% end %>
 <h1> Log In </h1>
 
 <%= form_tag "handle_login" do %>
     <%= label_tag "Enter Username" %>
-    <%= text_field_tag :username %>
+    <%= text_field_tag :username %><br>
     <%= label_tag "Enter Password" %>
-    <%= password_field_tag :password %>
+    <%= password_field_tag :password %><br><br>
     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
     <%= submit_tag "Log In" %>
 <% end %>
+</div>

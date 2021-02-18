@@ -23,6 +23,8 @@ header {
 
 a {
     text-decoration: none;
+    margin: 10px;
+
 }
 
 #search_bar input#name {
@@ -36,3 +38,7 @@ a {
     font-size: 20px;
 }
 
+form input[type = "submit"] {
+    padding: 5px;
+    background-color: darkgrey;
+}

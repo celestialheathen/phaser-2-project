@@ -7,13 +7,18 @@
 
     <p> Price: <%= "$ #{@item.price}" %><br></p>
 
-    <p> Stock: <%= @item.stock %><br> </p>
-    <% if is_logged_in? %>
+    <p> Stock: <% if @item.stock == 0 %> No Longer in stock
+               <% else%>
+                  <%= @item.stock %><br></p>
+                <% end %>
+    <% if is_logged_in? && @item.stock > 0 %>
         <%= form_for @purchase do |f| %>
             <%= f.hidden_field :item_id, :value => @item.id %>  
             <%= f.hidden_field :cart_id, :value => current_customer.carts.find_by(customer_id: current_customer.id) %>  
             <%= f.submit "Add to cart" %>
         <% end %>
+    <% elsif is_logged_in? %><br>
+        Cannot order
     <% else %>
     <p>Sign up or log in above to add item to cart</p>
 <% end %>

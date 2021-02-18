@@ -1,3 +1,20 @@
 // Place all the styles related to the Purchases controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.error {
+    text-align: center;
+    font-size: 22px;
+}
+
+div#item {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: space-around;
+}
+
+div#checkout {
+    margin-top: 50px;
+    text-align: center;
+}

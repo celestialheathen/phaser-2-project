@@ -1,20 +1,24 @@
 <% unless is_logged_in? %>
-    Please log in or sign up to view your cart.
+    <div class="error"> Please log in or sign up to view your cart. </div>
 <% else %>
     <% if current_customer.purchases.count == 0 %>
-        Your cart is empty.
+    <div class="error"> Your cart is empty. </div>
+
     <% else %>
-        <h1> Purchases </h1>
+        <h1> Your Cart </h1>
         <% total = 0 %>
         <% current_customer.purchases.each do |purchase| %>
-            <%= purchase.item.name %><br>
-            <%= purchase.item.price %><br>
-            <%= button_to "remove from cart", {:controller => :purchases, :action => 'destroy', :id => purchase.id }, method: "delete" %>
+            <div id="item">
+            <span><%= purchase.item.name %><br>
+                  $<%= purchase.item.price %><br></span>
+            <span><%= button_to "remove from cart", {:controller => :purchases, :action => 'destroy', :id => purchase.id }, method: "delete" %></span>
+            </div>
             <% total += purchase.item.price %>
         <% end %>
-
+        <div id="checkout">
         <p> Cart Item Total: <%= current_customer.purchases.count %> </p>
         <p> Subtotal: $<%= total %> </p>
-
+        <%= button_to "Checkout", "https://www.paypal.com/", method: "get" %>
+        </div>
     <% end %>
 <% end %>

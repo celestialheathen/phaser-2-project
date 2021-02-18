@@ -1,9 +1,10 @@
 <h1> Sign Up Today! </h1>
-
+<div id="login">
 <%= form_for @customer do |f| %>
     <%= f.label "Enter Username" %>
-    <%= f.text_field :username %>
+    <%= f.text_field :username %><br>
     <%= f.label "Enter Password" %>
-    <%= f.password_field :password %>
+    <%= f.password_field :password %><br><br>
     <%= f.submit "Create account" %>
 <% end %>
+</div>

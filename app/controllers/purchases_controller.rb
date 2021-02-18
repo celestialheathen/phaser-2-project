@@ -13,11 +13,13 @@ class PurchasesController < ApplicationController
         if @cart 
             @purchase = @cart.purchases.new(purchase_params)
             @purchase.save
+            @purchase.item.update(stock: @purchase.item.stock - 1)
             redirect_to purchases_path
         else  
             @cart = current_customer.carts.create(customer_id: current_customer.id)
             @purchase = @cart.purchases.new(purchase_params)
             @purchase.save
+            @purchase.item.update(stock: @purchase.item.stock - 1)
             redirect_to purchases_path
         end 
     end
@@ -28,6 +30,7 @@ class PurchasesController < ApplicationController
     def destroy
         @purchase = Purchase.find(params[:id])
         @purchase.destroy
+        @purchase.item.update(stock: @purchase.item.stock + 1)
         redirect_to purchases_path
     end
 
