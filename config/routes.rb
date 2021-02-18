@@ -3,8 +3,9 @@ Rails.application.routes.draw do
 
   get "/purchases", to: "purchases#index", as: "purchases"
   get "/purchases/:id", to: "purchases#show", as: "purchase"
+  delete "/purchases", to: "purchases#destroy"
+
   resources :purchases
-  
   resources :reviews
   resources :items
   resources :customers

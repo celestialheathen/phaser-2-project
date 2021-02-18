@@ -8,26 +8,24 @@
     <p> Price: <%= "$ #{@item.price}" %><br></p>
 
     <p> Stock: <%= @item.stock %><br> </p>
- </div>
-</section>
-
-
-
-<% if is_logged_in? %>
-    <%= form_for @purchase do |f| %>
-        <%= f.hidden_field :item_id, :value => @item.id %>  
-        <%= f.hidden_field :cart_id, :value => current_customer.carts.find_by(customer_id: current_customer.id) %>  
-        <%= f.submit "Add to cart" %>
-    <% end %>
-<% else %>
+    <% if is_logged_in? %>
+        <%= form_for @purchase do |f| %>
+            <%= f.hidden_field :item_id, :value => @item.id %>  
+            <%= f.hidden_field :cart_id, :value => current_customer.carts.find_by(customer_id: current_customer.id) %>  
+            <%= f.submit "Add to cart" %>
+        <% end %>
+    <% else %>
     <p>Sign up or log in above to add item to cart</p>
 <% end %>
+ </div>
+</section>
 
 <%= render "/reviews/show.html.erb" %>
 <%= render "/reviews/new.html.erb" %>
 
-<% @items.sample(4).each do |item| %>
+<h4>People Who Bought This Also Purchased</h4>
+<% @items.sample(5).each do |item| %>
     <%= link_to item_path(item) do %>
-        <%= image_tag("#{item.image}.jpg", size: "150x90", :style => "margin: 12px") %>
+        <%= image_tag("#{item.image}.jpg", size: "250x170", :style => "margin: 12px") %>
     <% end %>
 <% end %>

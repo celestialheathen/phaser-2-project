@@ -25,6 +25,13 @@ class PurchasesController < ApplicationController
     def add_to_cart
     end 
 
+    def destroy
+        @purchase = Purchase.find(params[:id])
+        @purchase.destroy
+        redirect_to purchases_path
+    end
+
+
     private
     
     def purchase_params
